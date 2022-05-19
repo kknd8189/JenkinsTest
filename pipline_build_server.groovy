@@ -25,9 +25,6 @@ pipeline
         {      
             steps
             {
-            
-                dir(RepositoryDir) 
-                {
                     checkout([$class: 'SubversionSCM',
                         additionalCredentials: [],
                         excludedCommitMessages: '',
@@ -45,7 +42,6 @@ pipeline
                                         remote: params.SERVER_SVN_URL + '@' + params.SERVER_REVISION_ID]], 
                                         quietOperation: true, 
                                         workspaceUpdater: [$class: 'UpdateWithRevertUpdater']])
-                }
             }
         }
     }
