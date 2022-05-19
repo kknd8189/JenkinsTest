@@ -15,6 +15,7 @@ pipeline
     {
         node
         {
+            customWorkspace 'C:\\BladeRA'
             label 'TEST_LABEL'
         }
     }
