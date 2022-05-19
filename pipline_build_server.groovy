@@ -22,7 +22,10 @@ pipeline
     stages 
     { 
         stage('Server SVN CheckOut') 
-        {            
+        {      
+            steps
+            {
+            
                 dir(RepositoryDir) 
                 {
                     checkout([$class: 'SubversionSCM',
@@ -43,6 +46,7 @@ pipeline
                                         quietOperation: true, 
                                         workspaceUpdater: [$class: 'UpdateWithRevertUpdater']])
                 }
+            }
         }
     }
 
