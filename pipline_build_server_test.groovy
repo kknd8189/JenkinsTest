@@ -5,7 +5,7 @@ pipeline
 {
     parameters
     {
-        string defaultValue: 'http://repositories.actionsquare.corp/svn/b2r/trunk/BladeRA/Server/', description: '서버 SVN 주소', name: 'SERVER_SVN_URL', trim: false
+        string defaultValue: 'http://repositories.actionsquare.corp/svn/b2r/trunk/BladeRA/Server', description: '서버 SVN 주소', name: 'SERVER_SVN_URL', trim: false
         string defaultValue: 'HEAD', description: 'Server svn revision id', name: 'SERVER_REVISION_ID', trim: false
         booleanParam defaultValue: false, description: '리빌드여부', name: 'REBUILD_ENGINE'
     }
