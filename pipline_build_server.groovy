@@ -5,8 +5,8 @@ pipeline
 {
     parameters
     {
-        string defaultValue: 'http://repositories.actionsquare.corp/svn/b2r/trunk/BladeRA/Server/', description: '서버 SVN 주소', name: 'SEVER_SVN_URL', trim: false
-        string defaultValue: 'HEAD', description: 'Game svn revision id', name: 'GAME_SRC_REVISION_ID', trim: false
+        string defaultValue: 'http://repositories.actionsquare.corp/svn/b2r/trunk/BladeRA/Server/', description: '서버 SVN 주소', name: 'SERVER_SVN_URL', trim: false
+        string defaultValue: 'HEAD', description: 'Server svn revision id', name: 'SERVER_REVISION_ID', trim: false
         booleanParam defaultValue: false, description: '리빌드여부', name: 'REBUILD_ENGINE'
     }
 
@@ -25,7 +25,6 @@ pipeline
         {            
                 dir(RepositoryDir) 
                 {
-
                     checkout([$class: 'SubversionSCM',
                         additionalCredentials: [],
                         excludedCommitMessages: '',
@@ -36,15 +35,13 @@ pipeline
                         ignoreDirPropChanges: false,
                         includedRegions: '',
                         locations: [[cancelProcessOnExternalsFail: true, 
-                                        credentialsId: '_b2r_jenkins', 
+                                        credentialsId: 'kknd8189', 
                                         depthOption: 'infinity', 
                                         ignoreExternalsOption: false, 
                                         local: '.', 
-                                        remote: params.ENGINE_SVN_URL + '@' + params.ENGINE_REVISION_ID]], 
+                                        remote: params.SERVER_SVN_URL + '@' + params.SERVER_REVISION_ID]], 
                                         quietOperation: true, 
                                         workspaceUpdater: [$class: 'UpdateWithRevertUpdater']])
-
-                    bat 'echo Engine Git checkout - fininsh...'
                 }
         }
     }
