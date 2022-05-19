@@ -23,7 +23,8 @@ pipeline
     { 
         stage('Server SVN CheckOut') 
         {            
-                dir(RepositoryDir) {
+                dir(RepositoryDir) 
+                {
 
                     checkout([$class: 'SubversionSCM',
                         additionalCredentials: [],
@@ -46,5 +47,6 @@ pipeline
                     bat 'echo Engine Git checkout - fininsh...'
                 }
         }
+    }
 
 }
