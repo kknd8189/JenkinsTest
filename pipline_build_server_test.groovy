@@ -35,7 +35,7 @@ pipeline
         {          
             stepes
             {
-                bat '.\\pow-½ºÄ±ÇÊ±×¸²\\WindowsAPI.sln
+                bat '.\\pow-½ºÄ±ÇÊ±×¸²\\WindowsAPI.sln'
             }
         }
     }
