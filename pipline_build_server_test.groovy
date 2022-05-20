@@ -1,6 +1,7 @@
 def RepositoryDir = 'Repository'
 def JenkinsScriptDir = 'JenkinsScriptDir'
 def JenkinsScriptGitURL = 'http://repositories.actionsquare.corp:3000/b2r/Tools.git'
+def ServerDir = 'Server'
 
 pipeline
 {
@@ -27,15 +28,16 @@ pipeline
         {      
             steps
             {
-                  checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[credentialsId: 'kknd8189', url: 'https://github.com/kknd8189/teamportfolio-SkotpillGrim.git']]])
+                  new File(RepositoryDir).mkdir()
+                  new File(ServerDir).mkdir()  
             }
         }
 
         stage('Test Build')
-        {          
-            steps
+        {   
+            dir(ServerDir)
             {
-                bat 'TestBat.bat'
+                 checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[credentialsId: 'kknd8189', url: 'https://github.com/kknd8189/teamportfolio-SkotpillGrim.git']]])
             }
         }
     }
