@@ -24,19 +24,18 @@ pipeline
 
 	stages 
 	{ 
-		stage('Test CheckOut') 
+		stage('Test initialize') 
 		{      
 			steps
 			{
 				script
 				{
-					new File(RepositoryDir).mkdir()
 					new File(ServerDir).mkdir()  
 				}
 			}
 		}
 
-		stage('Test Build')
+		stage('Test checkout')
 		{   
 			steps
 			{
