@@ -33,9 +33,9 @@ pipeline
 
         stage('Test Build')
         {          
-            stepes
+            steps
             {
-                bat 'dir ..\\.'
+                bat '.\\pow-½ºÄ±ÇÊ±×¸²\\WindowsAPI''
             }
         }
     }
