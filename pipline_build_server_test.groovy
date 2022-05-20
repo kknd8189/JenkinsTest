@@ -35,7 +35,7 @@ pipeline
         {          
             steps
             {
-                bat '.\\pow-½ºÄ±ÇÊ±×¸²\\WindowsAPI''
+                bat 'TestBat.bat'
             }
         }
     }
