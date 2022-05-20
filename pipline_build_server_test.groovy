@@ -62,10 +62,13 @@ pipeline
 		{
 			steps
 			{
-				script
-				{
-					build 'C:\\BladeRA\\Server\\pow-½ºÄ±ÇÊ±×¸²\\WindowAPI.sln'
-				}
+			script
+               {
+                 bat '''set MSBUILD="C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\MSBuild\\Current\\Bin\\MSBuild.exe"
+                        set BUILD_PATH="C:\\B2R\\ServerDir\\Source\\ServerB2R.sln"
+
+                        %MSBUILD% %BUILD_PATH%'''
+               }
 			}
 		}
 	}
