@@ -64,10 +64,7 @@ pipeline
 			{
 				script
 				{
-					 bat '''echo MSVSPATH=%MSVSPATH%
-              %comspec% /c ""%MSVSPATH%\\VC\\Auxiliary\\Build\\vcvarsall.bat"" amd64
-              "%MSVSPATH%\\MSBuild\\Current\\Bin\\msbuild.exe" .\\Engine\\Source\\Programs\\UnrealBuildTool\\UnrealBuildTool.csproj /p:Configuration="Development" /t:Build'''
-     
+					build 'C:\\BladeRA\\Server\\pow-½ºÄ±ÇÊ±×¸²\\WindowAPI.sln'
 				}
 			}
 		}
