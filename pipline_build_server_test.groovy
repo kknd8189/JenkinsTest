@@ -53,11 +53,11 @@ pipeline
 			{
 				dir(ServerDir)
 				{
-					checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[credentialsId: 'kknd8189', url: 'https://github.com/kknd8189/teamportfolio-SkotpillGrim.git']]])
+					checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[credentialsId: 'kknd8189', url: 'https://github.com/kknd8189/D3DPersonalStudy.git']]])
 				}
 			}
 		}
-
+		/*
 		stage('Test Build')
 		{
 			steps
@@ -71,5 +71,6 @@ pipeline
                }
 			}
 		}
+		*/
 	}
 }
