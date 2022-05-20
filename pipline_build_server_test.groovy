@@ -1,6 +1,6 @@
 def RepositoryDir = 'Repository'
 def JenkinsScriptDir = 'JenkinsScriptDir'
-def JenkinsScriptGitURL = 'http://repositories.actionsquare.corp:3000/b2r/Tools.git'
+def JenkinsScriptGitURL = 'https://github.com/kknd8189/JenkinsTest'
 def ServerDir = 'Server'
 
 pipeline
@@ -23,18 +23,30 @@ pipeline
 
 
 	stages 
-	{ 
-		stage('Test initialize') 
-		{      
-			steps
-			{
-				script
-				{
-					new File(ServerDir).mkdir()  
-				}
-			}
-		}
+	{     
+	stage('Initialize') 
+	{
+            steps {
+                script {
+                                   
+                    def exists = fileExists 'Source'
+                    if (!exists){
+                        new File(RepositoryDir).mkdir()
+                        new File(JenkinsScriptDir).mkdir()
+                    }
+                }
+            }
+    }
+	stage('Jenkins Script checkout') {
+            steps {
+            
+                dir(JenkinsScriptDir) {
 
+                 checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[credentialsId: 'kknd8189', url: JenkinsScriptGitURL]]])
+                 bat 'echo Jenkins Script checkout - fininsh...'
+                }
+            }
+        }
 		stage('Test checkout')
 		{   
 			steps
