@@ -57,7 +57,7 @@ pipeline
 				}
 			}
 		}
-		/*
+	
 		stage('Test Build')
 		{
 			steps
@@ -65,12 +65,11 @@ pipeline
 			script
                {
                  bat '''set MSBUILD="C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\MSBuild\\Current\\Bin\\MSBuild.exe"
-                        set BUILD_PATH="C:\\BladeRA\\Server\\pow-½ºÄ±ÇÊ±×¸²\\WindowAPI.sln"
-
+                        set BUILD_PATH="C:\\BladeRA\\Server\\D3D\\WindowsAPI.sln"
+					
                         %MSBUILD% %BUILD_PATH%'''
                }
 			}
 		}
-		*/
 	}
 }
