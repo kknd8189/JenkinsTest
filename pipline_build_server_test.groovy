@@ -61,5 +61,13 @@ pipeline
 				}
 			}
 		}
+
+		stage('Test')
+		{
+			steps
+			{
+				echo params.BUILD_TYPE
+			}
+		}
 	}
 }
