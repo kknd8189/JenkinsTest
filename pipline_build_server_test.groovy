@@ -10,7 +10,7 @@ pipeline
 		string defaultValue: 'http://repositories.actionsquare.corp/svn/b2r/trunk/BladeRA/Server', description: '서버 SVN 주소', name: 'SERVER_SVN_URL', trim: false
 		string defaultValue: 'HEAD', description: 'Server svn revision id', name: 'SERVER_REVISION_ID', trim: false
 		booleanParam defaultValue: false, description: '리빌드여부', name: 'REBUILD_ENGINE'
-		choicen choices: ['Debug', 'Release'], description: '빌드 타입 설정', name: 'BUILD_TYPE'
+		 choice choices: ['Debug', 'Release'], description: 'Choose Build Type', name: 'BUILD_TYPE'
 	}
 
 	agent
@@ -25,8 +25,8 @@ pipeline
 
 	stages 
 	{     
-	stage('Initialize') 
-	{
+		stage('Initialize') 
+		{
             steps {
                 script {
                                    
@@ -37,17 +37,20 @@ pipeline
                     }
                 }
             }
-    }
-	stage('Jenkins Script checkout') {
-            steps {
+		}
+		stage('Jenkins Script checkout') 
+		{
+            steps 
+			{
             
-                dir(JenkinsScriptDir) {
-
+                dir(JenkinsScriptDir) 
+				{
                  checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[credentialsId: 'kknd8189', url: JenkinsScriptGitURL]]])
                  bat 'echo Jenkins Script checkout - fininsh...'
                 }
             }
         }
+
 		stage('Test checkout')
 		{   
 			steps
@@ -58,5 +61,5 @@ pipeline
 				}
 			}
 		}
-		}
+	}
 }
