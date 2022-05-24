@@ -10,6 +10,7 @@ pipeline
 		string defaultValue: 'http://repositories.actionsquare.corp/svn/b2r/trunk/BladeRA/Server', description: '서버 SVN 주소', name: 'SERVER_SVN_URL', trim: false
 		string defaultValue: 'HEAD', description: 'Server svn revision id', name: 'SERVER_REVISION_ID', trim: false
 		booleanParam defaultValue: false, description: '리빌드여부', name: 'REBUILD_ENGINE'
+		choicen choices: ['Debug', 'Release'], description: '빌드 타입 설정', name: 'BUILD_TYPE'
 	}
 
 	agent
@@ -57,19 +58,4 @@ pipeline
 				}
 			}
 		}
-	
-		stage('Test Build')
-		{
-			steps
-			{
-			script
-               {
-                 bat '''set MSBUILD="C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\MSBuild\\Current\\Bin\\MSBuild.exe"
-                        set BUILD_PATH="C:\\BladeRA\\Server\\D3D\\WindowsAPI.sln"
-					
-                        %MSBUILD% %BUILD_PATH% /p:Configuration="Debug" /t:Build'''
-               }
-			}
-		}
-	}
 }
